@@ -1,0 +1,50 @@
+Step 1: Check Docker Installation
+Open Command Prompt or Terminal and enter:
+docker --version
+If Docker is installed correctly, its version will be displayed.
+Example:
+Docker version 28.x.x
+Step 2: Start Docker Desktop
+Open Docker Desktop and make sure Docker Engine is running.
+Docker must be running before executing Docker commands.
+Step 3: Login to Docker Hub
+Open the terminal and run:
+docker login
+Enter your Docker Hub username and password when prompted.
+If the login is successful, Docker will display a successful login message.
+Step 4: Select a Docker Hub Repository
+Use a Docker Hub image that has already been uploaded.
+For example:
+yourusername/student-management-api:latest
+Here:
+· yourusername is the Docker Hub username.
+· student-management-api is the repository name.
+· latest is the image tag.
+Replace yourusername with the actual Docker Hub username.
+Step 5: Pull the Docker Image
+Run the following command:
+docker pull yourusername/student-management-api:latest
+Docker will download the image from the Docker Hub repository to the local computer.
+Example:
+docker pull rahul123/student-management-api:latest
+After the download is completed, Docker will display the downloaded image layers.
+Step 6: Verify the Docker Image
+To view the downloaded Docker images, run:
+docker images
+Expected output:
+REPOSITORY TAG IMAGE ID CREATED
+yourusername/student-management-api latest abc123456789 ...
+This confirms that the Docker image has been successfully downloaded to the local system.
+Step 7: Run the Docker Image
+Run the downloaded image using:
+docker run -d -p 5000:5000 --name student-api yourusername/student-managementapi:latest
+Example:
+docker run -d -p 5000:5000 --name student-api rahul123/student-management-api:latest
+Here:
+-d runs the container in detached mode.
+-p 5000:5000 maps the local port 5000 to the container port 5000.
+--name student-api assigns a name to the container.
+Step 8: Check the Running Container
+Run:
+docker ps
+Step 9: Test the API application using POSTMAN
